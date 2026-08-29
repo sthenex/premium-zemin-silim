@@ -1,6 +1,6 @@
-# Premium Zemin Silim
+# ZeminSilim
 
-Premium Zemin Silim için hazırlanmış bağımsız, mobil uyumlu ve SEO odaklı kurumsal web sitesi.
+ZeminSilim için hazırlanmış bağımsız, mobil uyumlu ve SEO odaklı kurumsal web sitesi.
 
 ## Yerel geliştirme
 

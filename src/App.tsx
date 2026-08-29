@@ -45,7 +45,7 @@ const projectGallery = [
     description: 'Konut ve ticari alanlarda gerçekleştirilen mermer silim, leke giderme ve parlatma uygulamaları.',
     images: Array.from({ length: 6 }, (_, index) => ({
       src: `/templates/premium-zemin-silim/gallery/mermer-${String(index + 1).padStart(2, '0')}.webp`,
-      alt: `Premium Zemin Silim mermer silimi uygulaması ${index + 1}`,
+      alt: `ZeminSilim mermer silimi uygulaması ${index + 1}`,
     })),
   },
   {
@@ -54,7 +54,7 @@ const projectGallery = [
     description: 'Merdiven ve basamaklarda kenar detaylarını koruyan hassas silim ve cila çalışmaları.',
     images: Array.from({ length: 6 }, (_, index) => ({
       src: `/templates/premium-zemin-silim/gallery/basamak-${String(index + 1).padStart(2, '0')}.webp`,
-      alt: `Premium Zemin Silim basamak silimi uygulaması ${index + 1}`,
+      alt: `ZeminSilim basamak silimi uygulaması ${index + 1}`,
     })),
   },
   {
@@ -63,7 +63,7 @@ const projectGallery = [
     description: 'Beton yüzeylerde dengeli aşındırma, pürüz giderme ve kullanıma hazır zemin uygulamaları.',
     images: Array.from({ length: 2 }, (_, index) => ({
       src: `/templates/premium-zemin-silim/gallery/beton-silim-${String(index + 1).padStart(2, '0')}.webp`,
-      alt: `Premium Zemin Silim beton silimi uygulaması ${index + 1}`,
+      alt: `ZeminSilim beton silimi uygulaması ${index + 1}`,
     })),
   },
   {
@@ -71,7 +71,7 @@ const projectGallery = [
     label: 'Beton cila',
     description: 'Otopark ve endüstriyel alanlarda dayanıklı, temiz ve kontrollü parlaklığa sahip yüzeyler.',
     images: [
-      { src: '/templates/premium-zemin-silim/gallery/beton-cila-01.webp', alt: 'Premium Zemin Silim beton cila uygulaması' },
+      { src: '/templates/premium-zemin-silim/gallery/beton-cila-01.webp', alt: 'ZeminSilim beton cila uygulaması' },
       { src: '/templates/premium-zemin-silim/gallery/beton-silim-01.webp', alt: 'Beton zeminde silim ve yüzey hazırlığı uygulaması' },
       { src: '/templates/premium-zemin-silim/gallery/beton-silim-02.webp', alt: 'Beton zeminde silim sonrası temiz yüzey görünümü' },
     ],
@@ -82,7 +82,7 @@ const projectGallery = [
     description: 'Desenli çini ve karo zeminlerde özgün dokuyu koruyan temizlik, silim ve yenileme işlemleri.',
     images: Array.from({ length: 3 }, (_, index) => ({
       src: `/templates/premium-zemin-silim/gallery/cini-${String(index + 1).padStart(2, '0')}.webp`,
-      alt: `Premium Zemin Silim çini silimi uygulaması ${index + 1}`,
+      alt: `ZeminSilim çini silimi uygulaması ${index + 1}`,
     })),
   },
   {
@@ -91,7 +91,7 @@ const projectGallery = [
     description: 'Eski mozaik zeminlerde taşı aşındırmadan yapılan yüzey yenileme ve parlatma uygulamaları.',
     images: Array.from({ length: 2 }, (_, index) => ({
       src: `/templates/premium-zemin-silim/gallery/mozaik-${String(index + 1).padStart(2, '0')}.webp`,
-      alt: `Premium Zemin Silim mozaik silimi uygulaması ${index + 1}`,
+      alt: `ZeminSilim mozaik silimi uygulaması ${index + 1}`,
     })),
   },
   {
@@ -100,12 +100,12 @@ const projectGallery = [
     description: 'Paladyen taş zeminlerde dokuyu öne çıkaran profesyonel silim ve cila çalışmaları.',
     images: Array.from({ length: 5 }, (_, index) => ({
       src: `/templates/premium-zemin-silim/gallery/paladyen-${String(index + 1).padStart(2, '0')}.webp`,
-      alt: `Premium Zemin Silim paladyen silimi uygulaması ${index + 1}`,
+      alt: `ZeminSilim paladyen silimi uygulaması ${index + 1}`,
     })),
   },
 ];
 
-export default function PremiumZeminSilimPage() {
+export default function ZeminSilimPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [slider, setSlider] = useState(52);
   const [selectedService, setSelectedService] = useState('Mermer silim ve cila');
@@ -130,7 +130,7 @@ export default function PremiumZeminSilimPage() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const message = [
-      'Merhaba Premium Zemin Silim, web sitenizden teklif almak istiyorum.',
+      'Merhaba ZeminSilim, web sitenizden teklif almak istiyorum.',
       '',
       `Ad Soyad: ${data.get('name') || '-'}`,
       `Telefon: ${data.get('phone') || '-'}`,
@@ -147,7 +147,7 @@ export default function PremiumZeminSilimPage() {
 
       <header className="pzs-header">
         <div className="pzs-shell pzs-header__inner">
-          <a className="pzs-logo" href="#anasayfa" aria-label="Premium Zemin Silim ana sayfa"><img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" /><span><strong>PREMIUM</strong><small>ZEMİN SİLİM</small></span></a>
+          <a className="pzs-logo" href="#anasayfa" aria-label="ZeminSilim ana sayfa"><img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" /><span><strong>ZEMİN</strong><small>SİLİM</small></span></a>
           <nav className="pzs-nav" aria-label="Ana menü"><a href="#hizmetler">Hizmetler</a><a href="#donusum">Öncesi / Sonrası</a><a href="#galeri">Uygulamalar</a><a href="#surec">Çalışma Süreci</a></nav>
           <div className="pzs-header__actions"><a className="pzs-header__phone" href="tel:+905079480834"><Phone size={17} /><span>Ücretsiz keşif</span></a><a className="pzs-header__quote" href="#teklif">Teklif al <ArrowRight size={15} /></a><button aria-label="Menüyü aç" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={21} /> : <Menu size={22} />}</button></div>
         </div>
@@ -164,10 +164,10 @@ export default function PremiumZeminSilimPage() {
           <div className="pzs-hero__actions"><a href="#teklif" className="pzs-button pzs-button--gold">Ücretsiz keşif planla <ArrowRight size={17} /></a><a href="#donusum" className="pzs-hero__link">Dönüşümü gör <MoveHorizontal size={17} /></a></div>
           <div className="pzs-hero__proof"><span><BadgeCheck size={17} /> Yüzeye özel uygulama</span><span><MapPin size={17} /> Türkiye geneli hizmet</span><span><ShieldCheck size={17} /> Kontrollü işçilik</span></div>
         </div>
-        <div className="pzs-hero__index"><span>01</span><i /><small>Premium<br />yüzey deneyimi</small></div>
+        <div className="pzs-hero__index"><span>01</span><i /><small>Profesyonel<br />yüzey deneyimi</small></div>
       </section>
 
-      <div className="pzs-marquee" aria-hidden="true"><div>PREMIUM ZEMİN <span>•</span> MERMER SİLİM <span>•</span> BETON PARLATMA <span>•</span> GRANİT CİLA <span>•</span> EPOKSİ TAŞLAMA <span>•</span> TRAVERTEN <span>•</span> MOZAİK <span>•</span> MERMER SİLİM <span>•</span> BETON PARLATMA <span>•</span></div></div>
+      <div className="pzs-marquee" aria-hidden="true"><div>ZEMİNSİLİM <span>•</span> MERMER SİLİM <span>•</span> BETON PARLATMA <span>•</span> GRANİT CİLA <span>•</span> EPOKSİ TAŞLAMA <span>•</span> TRAVERTEN <span>•</span> MOZAİK <span>•</span> MERMER SİLİM <span>•</span> BETON PARLATMA <span>•</span></div></div>
 
       <section className="pzs-section pzs-transformation" id="donusum">
         <div className="pzs-shell">
@@ -225,9 +225,9 @@ export default function PremiumZeminSilimPage() {
 
       <section className="pzs-quote" id="teklif"><div className="pzs-shell pzs-quote__grid"><div><span>ÜCRETSİZ ÖN DEĞERLENDİRME</span><h2>Zemininizi<br />birlikte yenileyelim.</h2><p>Yüzey türünü ve uygulama alanını iletin; ihtiyacınıza uygun çalışma planını oluşturalım.</p><div><strong>İstanbul merkezli</strong><small>Türkiye genelinde proje ve uygulama</small></div></div><form onSubmit={submitQuote}><label><span>Adınız</span><input name="name" required placeholder="Ad soyad" /></label><label><span>Telefon</span><input name="phone" required inputMode="tel" placeholder="05__ ___ __ __" /></label><label><span>Yüzey türü</span><select name="service" value={selectedService} onChange={(event) => setSelectedService(event.target.value)}>{services.map((service) => <option key={service[1]}>{service[1]}</option>)}</select></label><label><span>Uygulama şehri</span><input name="city" required placeholder="İstanbul" /></label><label className="pzs-quote__wide"><span>Alan ve mevcut durum</span><textarea name="details" placeholder="Yaklaşık m² ve zemindeki sorunları kısaca yazın" /></label><button className="pzs-button pzs-button--gold" type="submit">WhatsApp'tan teklif al <MessageCircle size={17} /></button>{activeService && <small className="pzs-form-note"><Check size={13} /> Seçilen hizmet: {activeService[1]}</small>}</form></div></section>
 
-      <footer className="pzs-footer"><div className="pzs-shell"><div className="pzs-footer__main"><a className="pzs-logo" href="#anasayfa"><img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" /><span><strong>PREMIUM</strong><small>ZEMİN SİLİM</small></span></a><p>Profesyonel zemin silim, taşlama, parlatma ve cila uygulamaları.</p><a href="#teklif">Keşif talebi <ArrowRight size={15} /></a></div><div className="pzs-footer__bottom"><span>© 2026 Premium Zemin Silim</span><span>İstanbul · Türkiye geneli hizmet</span></div></div></footer>
+      <footer className="pzs-footer"><div className="pzs-shell"><div className="pzs-footer__main"><a className="pzs-logo" href="#anasayfa"><img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" /><span><strong>ZEMİN</strong><small>SİLİM</small></span></a><p>Profesyonel zemin silim, taşlama, parlatma ve cila uygulamaları.</p><a href="#teklif">Keşif talebi <ArrowRight size={15} /></a></div><div className="pzs-footer__bottom"><span>© 2026 ZeminSilim</span><span>İstanbul · Türkiye geneli hizmet</span></div></div></footer>
 
-      <div className="pzs-contact-float"><a className="pzs-contact-float__whatsapp" href="https://wa.me/905079480834?text=Merhaba%20Premium%20Zemin%20Silim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer" aria-label="WhatsApp'tan yaz"><MessageCircle size={19} /><span>WhatsApp</span></a><a className="pzs-contact-float__phone" href="tel:+905079480834" aria-label="Premium Zemin Silim'i ara"><Phone size={19} /><span>Ara</span></a></div>
+      <div className="pzs-contact-float"><a className="pzs-contact-float__whatsapp" href="https://wa.me/905079480834?text=Merhaba%20ZeminSilim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer" aria-label="WhatsApp'tan yaz"><MessageCircle size={19} /><span>WhatsApp</span></a><a className="pzs-contact-float__phone" href="tel:+905079480834" aria-label="ZeminSilim'i ara"><Phone size={19} /><span>Ara</span></a></div>
 
     </main>
   );
