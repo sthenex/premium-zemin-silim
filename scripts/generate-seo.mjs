@@ -60,7 +60,7 @@ for (const [slug, title, description] of legalPages) {
   let html = home.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title} | ZeminSilim</title>`);
   html = replaceMeta(html, 'name', 'description', description);
   html = html.replace(/<link rel="canonical" href="[^"]*"\s*\/>/i, `<link rel="canonical" href="${siteUrl}/${slug}" />`);
-  html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root"><main style="font-family:system-ui,sans-serif;padding:48px;max-width:850px;margin:auto"><nav><a href="/">Ana Sayfa</a></nav><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p><p>İletişim: <a href="tel:+905079480834">+90 507 948 08 34</a></p></main></div>`);
+  html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root"><main style="font-family:system-ui,sans-serif;padding:48px;max-width:850px;margin:auto"><nav><a href="/">Ana Sayfa</a></nav><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p><p>Premium Zemin Silim · Esenkent, Leylek Sk No:46 D:1, 34776 Ümraniye/İstanbul</p><p><a href="mailto:premiumzeminsilim@gmail.com">premiumzeminsilim@gmail.com</a> · <a href="tel:+905079480834">+90 507 948 08 34</a></p></main></div>`);
   const directory = resolve(dist, slug);
   await mkdir(directory, { recursive: true });
   await writeFile(resolve(directory, 'index.html'), html);

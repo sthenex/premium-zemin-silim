@@ -10,6 +10,7 @@ import {
   Hotel,
   Layers3,
   MapPin,
+  Mail,
   Menu,
   MessageCircle,
   MoveHorizontal,
@@ -35,11 +36,11 @@ const legalPages = {
     title: 'Gizlilik Politikası',
     updated: '30 Ağustos 2026',
     sections: [
-      ['Veri sorumlusu ve kapsam', 'Bu metin, ZeminSilim internet sitesi üzerinden teklif veya iletişim talebi oluşturan ziyaretçilerin kişisel verilerinin işlenmesi hakkında bilgi verir. Veri sorumlusu ZeminSilim işletmesidir. İletişim: +90 507 948 08 34.'],
+      ['Veri sorumlusu ve kapsam', 'Bu metin, Premium Zemin Silim internet sitesi üzerinden teklif veya iletişim talebi oluşturan ziyaretçilerin kişisel verilerinin işlenmesi hakkında bilgi verir. Veri sorumlusu Premium Zemin Silim’dir. Adres: Esenkent, Leylek Sk No:46 D:1, 34776 Ümraniye/İstanbul. İletişim: premiumzeminsilim@gmail.com ve +90 507 948 08 34.'],
       ['Toplanan bilgiler', 'Teklif formunu kullanmanız hâlinde ad-soyad, telefon, uygulama şehri, seçilen hizmet ile alanın mevcut durumuna ilişkin açıklamalar işlenebilir. Site formu bu bilgileri kendi sunucusunda saklamaz; gönderim işlemi, onayınızla WhatsApp uygulamasına veya web sitesine yönlendirilerek tamamlanır.'],
       ['İşleme amaçları ve hukuki sebep', 'Bilgiler; talebinizi değerlendirmek, keşif planlamak, teklif hazırlamak, sizinle iletişim kurmak ve olası hizmet ilişkisinin kurulması veya ifası amaçlarıyla işlenir. İşleme; talebiniz üzerine sözleşmenin kurulması veya ifasıyla doğrudan ilgili olma, hukuki yükümlülüklerin yerine getirilmesi ve meşru menfaat hukuki sebeplerine dayanabilir.'],
       ['Aktarım ve saklama', 'WhatsApp üzerinden iletişim kurduğunuzda bilgileriniz WhatsApp/Meta altyapısı üzerinden işlenebilir ve ilgili hizmetin kendi gizlilik koşulları geçerli olur. Bilgiler yalnızca hizmetin yürütülmesi, yasal yükümlülükler veya yetkili makam talepleri için gerekli olduğu ölçüde paylaşılır; amaç için gerekli süre ve mevzuattaki zorunlu saklama süreleri boyunca tutulur.'],
-      ['Haklarınız', '6698 sayılı KVKK’nın 11. maddesi kapsamındaki bilgi alma, düzeltme, silme veya yok etme, işlemeye itiraz ve kanuna aykırı işleme nedeniyle zararın giderilmesini talep etme haklarınız için +90 507 948 08 34 numarasından başvurabilirsiniz. Kimlik doğrulaması ve talebin niteliğine göre ek bilgi istenebilir.'],
+      ['Haklarınız', '6698 sayılı KVKK’nın 11. maddesi kapsamındaki bilgi alma, düzeltme, silme veya yok etme, işlemeye itiraz ve kanuna aykırı işleme nedeniyle zararın giderilmesini talep etme haklarınız için premiumzeminsilim@gmail.com adresine veya +90 507 948 08 34 numarasına başvurabilirsiniz. Kimlik doğrulaması ve talebin niteliğine göre ek bilgi istenebilir.'],
     ],
   },
   '/cerez-politikasi': {
@@ -63,7 +64,8 @@ const legalPages = {
       ['Müşteri sorumlulukları', 'Müşteri, yüzey ve çalışma alanıyla ilgili verdiği bilgilerin doğru olmasını; alanın erişime, elektrik ve su kullanımına ve kararlaştırılan çalışma koşullarına uygun şekilde hazırlanmasını sağlar. Gizli tesisat veya önceden bilinmeyen yapısal sorunlar keşif sırasında ayrıca değerlendirilir.'],
       ['İfa, değişiklik ve iptal', 'Uygulama tarihi, ödeme planı, ek işler ve olası değişiklikler hizmete özel teklifte belirtilir. Mesafeli yöntemle bir tüketici sözleşmesi kurulması hâlinde, yürürlükteki tüketici mevzuatındaki ön bilgilendirme ve cayma hakları saklıdır. Cayma süresi dolmadan hizmete başlanması ancak mevzuatın gerektirdiği açık talep/onay çerçevesinde değerlendirilir.'],
       ['Fikrî haklar ve site kullanımı', 'Sitedeki metin, tasarım, marka öğeleri ve işletmeye ait uygulama görselleri izin olmadan ticari amaçla kopyalanamaz. Site; hukuka aykırı müdahale, otomatik kötüye kullanım veya yanıltıcı talep oluşturmak amacıyla kullanılamaz.'],
-      ['İletişim ve uyuşmazlıklar', 'Talep, iptal veya şikâyetlerinizi +90 507 948 08 34 numarası üzerinden iletebilirsiniz. Tüketicilerin yürürlükteki mevzuattan doğan Tüketici Hakem Heyeti, Tüketici Mahkemesi ve diğer başvuru hakları saklıdır.'],
+      ['Sağlayıcı ve iletişim bilgileri', 'Hizmet sağlayıcı: Premium Zemin Silim. Adres: Esenkent, Leylek Sk No:46 D:1, 34776 Ümraniye/İstanbul. E-posta: premiumzeminsilim@gmail.com. Telefon: +90 507 948 08 34.'],
+      ['İletişim ve uyuşmazlıklar', 'Talep, iptal veya şikâyetlerinizi premiumzeminsilim@gmail.com adresine veya +90 507 948 08 34 numarasına iletebilirsiniz. Tüketicilerin yürürlükteki mevzuattan doğan Tüketici Hakem Heyeti, Tüketici Mahkemesi ve diğer başvuru hakları saklıdır.'],
     ],
   },
 } as const;
@@ -321,8 +323,9 @@ export default function ZeminSilimPage() {
 
             <div className="pzs-footer__column pzs-footer__contact">
               <h2>İletişim Bilgileri</h2>
-              <p><MapPin size={17} /><span>İstanbul merkezli<br />Türkiye geneli hizmet</span></p>
+              <p><MapPin size={17} /><span>Esenkent, Leylek Sk No:46 D:1<br />34776 Ümraniye/İstanbul</span></p>
               <a href="tel:+905079480834"><Phone size={17} /><span>+90 507 948 08 34</span></a>
+              <a href="mailto:premiumzeminsilim@gmail.com"><Mail size={17} /><span>premiumzeminsilim@gmail.com</span></a>
               <a href="https://wa.me/905079480834?text=Merhaba%20ZeminSilim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer"><MessageCircle size={17} /><span>WhatsApp'tan yazın</span></a>
             </div>
           </div>

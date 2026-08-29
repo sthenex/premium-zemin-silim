@@ -92,5 +92,6 @@ img{display:block;max-width:100%}
 @media(max-width:680px){.pzs-footer__legal{justify-content:flex-start;flex-wrap:wrap}.pzs-legal-page header>div{height:72px}.pzs-legal-page header>div>a:last-child{font-size:0}.pzs-legal-page article{padding-top:60px;padding-bottom:70px}.pzs-legal-page h1{font-size:clamp(3rem,14vw,4.5rem)}.pzs-legal-page footer>div{align-items:flex-start;flex-direction:column}}
 
 .pzs-legal-page{overflow:hidden}
+.pzs-footer__contact span{overflow-wrap:anywhere}
 @media(max-width:680px){.pzs-legal-page article{min-width:0}.pzs-legal-page h1{max-width:100%;overflow-wrap:anywhere;font-size:clamp(2.75rem,12vw,3.3rem);line-height:.98}.pzs-legal-page article section p{overflow-wrap:anywhere}}
 
