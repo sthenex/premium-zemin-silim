@@ -1,0 +1,12 @@
+{
+  "name": "Premium Zemin Silim",
+  "short_name": "Premium Zemin",
+  "description": "Profesyonel zemin silim, parlatma ve cila hizmetleri",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf6",
+  "theme_color": "#123f36",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
