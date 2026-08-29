@@ -225,7 +225,44 @@ export default function ZeminSilimPage() {
 
       <section className="pzs-quote" id="teklif"><div className="pzs-shell pzs-quote__grid"><div><span>ÜCRETSİZ ÖN DEĞERLENDİRME</span><h2>Zemininizi<br />birlikte yenileyelim.</h2><p>Yüzey türünü ve uygulama alanını iletin; ihtiyacınıza uygun çalışma planını oluşturalım.</p><div><strong>İstanbul merkezli</strong><small>Türkiye genelinde proje ve uygulama</small></div></div><form onSubmit={submitQuote}><label><span>Adınız</span><input name="name" required placeholder="Ad soyad" /></label><label><span>Telefon</span><input name="phone" required inputMode="tel" placeholder="05__ ___ __ __" /></label><label><span>Yüzey türü</span><select name="service" value={selectedService} onChange={(event) => setSelectedService(event.target.value)}>{services.map((service) => <option key={service[1]}>{service[1]}</option>)}</select></label><label><span>Uygulama şehri</span><input name="city" required placeholder="İstanbul" /></label><label className="pzs-quote__wide"><span>Alan ve mevcut durum</span><textarea name="details" placeholder="Yaklaşık m² ve zemindeki sorunları kısaca yazın" /></label><button className="pzs-button pzs-button--gold" type="submit">WhatsApp'tan teklif al <MessageCircle size={17} /></button>{activeService && <small className="pzs-form-note"><Check size={13} /> Seçilen hizmet: {activeService[1]}</small>}</form></div></section>
 
-      <footer className="pzs-footer"><div className="pzs-shell"><div className="pzs-footer__main"><a className="pzs-logo" href="#anasayfa"><img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" /><span><strong>ZEMİN</strong><small>SİLİM</small></span></a><p>Profesyonel zemin silim, taşlama, parlatma ve cila uygulamaları.</p><a href="#teklif">Keşif talebi <ArrowRight size={15} /></a></div><div className="pzs-footer__bottom"><span>© 2026 ZeminSilim</span><span>İstanbul · Türkiye geneli hizmet</span></div></div></footer>
+      <footer className="pzs-footer">
+        <div className="pzs-shell">
+          <div className="pzs-footer__top">
+            <div className="pzs-footer__brand">
+              <a className="pzs-logo" href="#anasayfa" aria-label="ZeminSilim ana sayfa">
+                <img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" />
+                <span><strong>ZEMİN</strong><small>SİLİM</small></span>
+              </a>
+              <p>Profesyonel zemin silim, taşlama, parlatma ve cila uygulamaları.</p>
+              <a className="pzs-footer__cta" href="#teklif">Ücretsiz keşif iste <ArrowRight size={15} /></a>
+            </div>
+
+            <nav className="pzs-footer__column" aria-label="Hızlı menü">
+              <h2>Hızlı Menü</h2>
+              <a href="#anasayfa">Anasayfa</a>
+              <a href="#hizmetler">Hizmetlerimiz</a>
+              <a href="#galeri">Uygulamalar</a>
+              <a href="#surec">Çalışma Süreci</a>
+              <a href="#teklif">Bize Ulaşın</a>
+            </nav>
+
+            <nav className="pzs-footer__column" aria-label="Hizmetlerimiz">
+              <h2>Hizmetlerimiz</h2>
+              {services.slice(0, 5).map(([, title]) => (
+                <a key={title} href="#teklif" onClick={() => setSelectedService(title)}>{title}</a>
+              ))}
+            </nav>
+
+            <div className="pzs-footer__column pzs-footer__contact">
+              <h2>İletişim Bilgileri</h2>
+              <p><MapPin size={17} /><span>İstanbul merkezli<br />Türkiye geneli hizmet</span></p>
+              <a href="tel:+905079480834"><Phone size={17} /><span>+90 507 948 08 34</span></a>
+              <a href="https://wa.me/905079480834?text=Merhaba%20ZeminSilim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer"><MessageCircle size={17} /><span>WhatsApp'tan yazın</span></a>
+            </div>
+          </div>
+          <div className="pzs-footer__bottom"><span>© 2026 ZeminSilim. Tüm hakları saklıdır.</span><span>İstanbul · Türkiye geneli hizmet</span></div>
+        </div>
+      </footer>
 
       <div className="pzs-contact-float"><a className="pzs-contact-float__whatsapp" href="https://wa.me/905079480834?text=Merhaba%20ZeminSilim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer" aria-label="WhatsApp'tan yaz"><MessageCircle size={19} /><span>WhatsApp</span></a><a className="pzs-contact-float__phone" href="tel:+905079480834" aria-label="ZeminSilim'i ara"><Phone size={19} /><span>Ara</span></a></div>
 
