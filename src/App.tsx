@@ -19,24 +19,64 @@ import {
   Sparkles,
   X,
 } from 'lucide-react';
+import servicePages from './service-pages.json';
 
-const services = [
-  ['01', 'Mermer silim ve cila', 'Matlaşan ve çizilen mermer yüzeylerde dengeli parlaklık.'],
-  ['02', 'Beton silim ve cila', 'Fabrika, depo ve otoparklar için dayanıklı yüzey çözümü.'],
-  ['03', 'Granit silim ve cila', 'Granit dokusunu koruyan kontrollü parlatma uygulaması.'],
-  ['04', 'Karo silim ve cila', 'Eski karo yüzeylerde renk ve doku yenileme.'],
-  ['05', 'Paladyen silim ve cila', 'Doğal taş yüzeylerde leke ve matlık giderme.'],
-  ['06', 'Traverten silim ve cila', 'Gözenekli taş yapısına uygun hassas yüzey işlemi.'],
-  ['07', 'Epoksi zemin taşlama', 'Yeni kaplama öncesi pürüzsüz ve hazır zemin.'],
-  ['08', 'Kaymaz yüzey silimi', 'Yoğun kullanılan alanlar için güvenli yüzey dengesi.'],
-  ['09', 'Mozaik zemin silimi', 'Eski mozaiklerde özgün dokuyu koruyan restorasyon.'],
-];
+const services = servicePages.map((service) => [service.number, service.title, service.shortDescription] as const);
 
 const caseCards = [
   { title: 'Doğal taş & mermer', label: 'KONUT · OTEL · OFİS', image: '/templates/premium-zemin-silim/mermer-donusum.webp' },
   { title: 'Endüstriyel beton', label: 'FABRİKA · DEPO · OTOPARK', image: '/templates/premium-zemin-silim/beton-silim.webp' },
   { title: 'Traverten & mozaik', label: 'MAĞAZA · LOBİ · VİLLA', image: '/templates/premium-zemin-silim/dogal-tas.webp' },
 ];
+
+const legalPages = {
+  '/gizlilik-politikasi': {
+    kicker: 'KVKK AYDINLATMA METNİ',
+    title: 'Gizlilik Politikası',
+    updated: '30 Ağustos 2026',
+    sections: [
+      ['Veri sorumlusu ve kapsam', 'Bu metin, ZeminSilim internet sitesi üzerinden teklif veya iletişim talebi oluşturan ziyaretçilerin kişisel verilerinin işlenmesi hakkında bilgi verir. Veri sorumlusu ZeminSilim işletmesidir. İletişim: +90 507 948 08 34.'],
+      ['Toplanan bilgiler', 'Teklif formunu kullanmanız hâlinde ad-soyad, telefon, uygulama şehri, seçilen hizmet ile alanın mevcut durumuna ilişkin açıklamalar işlenebilir. Site formu bu bilgileri kendi sunucusunda saklamaz; gönderim işlemi, onayınızla WhatsApp uygulamasına veya web sitesine yönlendirilerek tamamlanır.'],
+      ['İşleme amaçları ve hukuki sebep', 'Bilgiler; talebinizi değerlendirmek, keşif planlamak, teklif hazırlamak, sizinle iletişim kurmak ve olası hizmet ilişkisinin kurulması veya ifası amaçlarıyla işlenir. İşleme; talebiniz üzerine sözleşmenin kurulması veya ifasıyla doğrudan ilgili olma, hukuki yükümlülüklerin yerine getirilmesi ve meşru menfaat hukuki sebeplerine dayanabilir.'],
+      ['Aktarım ve saklama', 'WhatsApp üzerinden iletişim kurduğunuzda bilgileriniz WhatsApp/Meta altyapısı üzerinden işlenebilir ve ilgili hizmetin kendi gizlilik koşulları geçerli olur. Bilgiler yalnızca hizmetin yürütülmesi, yasal yükümlülükler veya yetkili makam talepleri için gerekli olduğu ölçüde paylaşılır; amaç için gerekli süre ve mevzuattaki zorunlu saklama süreleri boyunca tutulur.'],
+      ['Haklarınız', '6698 sayılı KVKK’nın 11. maddesi kapsamındaki bilgi alma, düzeltme, silme veya yok etme, işlemeye itiraz ve kanuna aykırı işleme nedeniyle zararın giderilmesini talep etme haklarınız için +90 507 948 08 34 numarasından başvurabilirsiniz. Kimlik doğrulaması ve talebin niteliğine göre ek bilgi istenebilir.'],
+    ],
+  },
+  '/cerez-politikasi': {
+    kicker: 'ŞEFFAF TEKNOLOJİ KULLANIMI',
+    title: 'Çerez Politikası',
+    updated: '30 Ağustos 2026',
+    sections: [
+      ['Mevcut kullanım', 'ZeminSilim sitesi şu anda reklam, davranışsal takip veya analitik amaçlı çerez kullanmaz. Siteyi görüntülemek için zorunlu olmayan bir çerez yerleştirilmediğinden ayrıca bir çerez onay bandı gösterilmez.'],
+      ['Üçüncü taraf bağlantıları', 'Telefon ve WhatsApp bağlantılarını seçtiğinizde üçüncü taraf bir uygulama veya web sitesi açılır. Bu hizmetler kendi çerezlerini ve benzer teknolojilerini kendi politikalarına göre kullanabilir; söz konusu işlemler ZeminSilim sitesinin kontrolü dışındadır.'],
+      ['Gelecekteki değişiklikler', 'Analitik, reklam veya zorunlu olmayan başka bir teknoloji eklenirse, bu politika kullanılmaya başlanmadan önce güncellenir ve gerekli olduğu ölçüde ziyaretçiden tercih veya açık onay alınmasını sağlayan bir mekanizma sunulur.'],
+      ['Tarayıcı kontrolleri', 'Çerezleri tarayıcınızın ayarlarından görüntüleyebilir, silebilir veya engelleyebilirsiniz. Zorunlu teknolojilerin engellenmesi bazı site işlevlerinin beklenen şekilde çalışmamasına neden olabilir.'],
+    ],
+  },
+  '/kullanim-kosullari': {
+    kicker: 'HİZMET VE KULLANIM ÇERÇEVESİ',
+    title: 'Kullanım ve Hizmet Koşulları',
+    updated: '30 Ağustos 2026',
+    sections: [
+      ['Sitenin amacı', 'Bu site; zemin silim, taşlama, parlatma ve cila hizmetleri hakkında bilgi sunar ve keşif/teklif talebi iletmeyi kolaylaştırır. Sitedeki genel açıklamalar tek başına kesin fiyat, süre veya sonuç taahhüdü oluşturmaz.'],
+      ['Keşif ve teklif', 'Uygulama yöntemi, fiyat, süre ve malzeme seçimi; yüzey türü, metraj, hasar, erişim şartları ve çalışma alanı incelendikten sonra netleşir. Bağlayıcı hizmet kapsamı tarafların yazılı veya kalıcı veri saklayıcısı üzerinden onayladığı teklifte belirlenir.'],
+      ['Müşteri sorumlulukları', 'Müşteri, yüzey ve çalışma alanıyla ilgili verdiği bilgilerin doğru olmasını; alanın erişime, elektrik ve su kullanımına ve kararlaştırılan çalışma koşullarına uygun şekilde hazırlanmasını sağlar. Gizli tesisat veya önceden bilinmeyen yapısal sorunlar keşif sırasında ayrıca değerlendirilir.'],
+      ['İfa, değişiklik ve iptal', 'Uygulama tarihi, ödeme planı, ek işler ve olası değişiklikler hizmete özel teklifte belirtilir. Mesafeli yöntemle bir tüketici sözleşmesi kurulması hâlinde, yürürlükteki tüketici mevzuatındaki ön bilgilendirme ve cayma hakları saklıdır. Cayma süresi dolmadan hizmete başlanması ancak mevzuatın gerektirdiği açık talep/onay çerçevesinde değerlendirilir.'],
+      ['Fikrî haklar ve site kullanımı', 'Sitedeki metin, tasarım, marka öğeleri ve işletmeye ait uygulama görselleri izin olmadan ticari amaçla kopyalanamaz. Site; hukuka aykırı müdahale, otomatik kötüye kullanım veya yanıltıcı talep oluşturmak amacıyla kullanılamaz.'],
+      ['İletişim ve uyuşmazlıklar', 'Talep, iptal veya şikâyetlerinizi +90 507 948 08 34 numarası üzerinden iletebilirsiniz. Tüketicilerin yürürlükteki mevzuattan doğan Tüketici Hakem Heyeti, Tüketici Mahkemesi ve diğer başvuru hakları saklıdır.'],
+    ],
+  },
+} as const;
+
+type LegalPath = keyof typeof legalPages;
+
+function LegalPage({ page }: { page: (typeof legalPages)[LegalPath] }) {
+  return <main className="pzs-legal-page">
+    <header><div className="pzs-shell"><a className="pzs-logo" href="/"><img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" /><span><strong>ZEMİN</strong><small>SİLİM</small></span></a><a href="/">Ana sayfaya dön <ArrowRight size={15} /></a></div></header>
+    <article className="pzs-shell"><span>{page.kicker}</span><h1>{page.title}</h1><p className="pzs-legal-updated">Son güncelleme: {page.updated}</p>{page.sections.map(([title, body]) => <section key={title}><h2>{title}</h2><p>{body}</p></section>)}</article>
+    <footer><div className="pzs-shell"><nav><a href="/gizlilik-politikasi">Gizlilik</a><a href="/cerez-politikasi">Çerezler</a><a href="/kullanim-kosullari">Kullanım Koşulları</a></nav><span>© 2026 ZeminSilim</span></div></footer>
+  </main>;
+}
 
 const projectGallery = [
   {
@@ -106,9 +146,12 @@ const projectGallery = [
 ];
 
 export default function ZeminSilimPage() {
+  const legalPage = legalPages[window.location.pathname.replace(/\/$/, '') as LegalPath];
+  const serviceSlug = window.location.pathname.match(/^\/hizmetler\/([^/]+)\/?$/)?.[1];
+  const seoService = servicePages.find((service) => service.slug === serviceSlug);
   const [menuOpen, setMenuOpen] = useState(false);
   const [slider, setSlider] = useState(52);
-  const [selectedService, setSelectedService] = useState('Mermer silim ve cila');
+  const [selectedService, setSelectedService] = useState(seoService?.title || 'Mermer Silim ve Cila');
   const [galleryPhotoIndexes, setGalleryPhotoIndexes] = useState<Record<string, number>>(() => Object.fromEntries(projectGallery.map((category) => [category.id, 0])));
   const activeService = useMemo(() => services.find((service) => service[1] === selectedService), [selectedService]);
 
@@ -141,20 +184,43 @@ export default function ZeminSilimPage() {
     window.open(`https://wa.me/905079480834?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };
 
+  if (legalPage) return <LegalPage page={legalPage} />;
+
   return (
     <main className="pzs-site">
       <div className="pzs-topbar"><div className="pzs-shell"><span><MapPin size={13} /> İstanbul merkezli</span><b>Türkiye geneli profesyonel zemin uygulaması</b><a href="#teklif">Hızlı keşif talebi <ArrowRight size={14} /></a></div></div>
 
       <header className="pzs-header">
         <div className="pzs-shell pzs-header__inner">
-          <a className="pzs-logo" href="#anasayfa" aria-label="ZeminSilim ana sayfa"><img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" /><span><strong>ZEMİN</strong><small>SİLİM</small></span></a>
+          <a className="pzs-logo" href={seoService ? '/' : '#anasayfa'} aria-label="ZeminSilim ana sayfa"><img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" /><span><strong>ZEMİN</strong><small>SİLİM</small></span></a>
           <nav className="pzs-nav" aria-label="Ana menü"><a href="#hizmetler">Hizmetler</a><a href="#donusum">Öncesi / Sonrası</a><a href="#galeri">Uygulamalar</a><a href="#surec">Çalışma Süreci</a></nav>
           <div className="pzs-header__actions"><a className="pzs-header__phone" href="tel:+905079480834"><Phone size={17} /><span>Ücretsiz keşif</span></a><a className="pzs-header__quote" href="#teklif">Teklif al <ArrowRight size={15} /></a><button aria-label="Menüyü aç" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={21} /> : <Menu size={22} />}</button></div>
         </div>
         {menuOpen && <nav className="pzs-mobile-nav"><a href="#hizmetler" onClick={() => setMenuOpen(false)}>Hizmetler</a><a href="#donusum" onClick={() => setMenuOpen(false)}>Öncesi / Sonrası</a><a href="#galeri" onClick={() => setMenuOpen(false)}>Uygulamalar</a><a href="#surec" onClick={() => setMenuOpen(false)}>Çalışma Süreci</a><a href="#teklif" onClick={() => setMenuOpen(false)}>Teklif al</a></nav>}
       </header>
 
-      <section className="pzs-hero" id="anasayfa">
+      {seoService ? <>
+        <section className="pzs-service-hero" id="anasayfa">
+          <div className="pzs-service-hero__image"><img src={seoService.image} alt={`${seoService.title} uygulaması`} fetchPriority="high" decoding="async" /></div>
+          <div className="pzs-shell pzs-service-hero__content">
+            <p className="pzs-eyebrow"><Sparkles size={14} /> {seoService.number} · Profesyonel yüzey uygulaması</p>
+            <nav aria-label="Sayfa yolu"><a href="/">Anasayfa</a><ChevronRight size={13} /><span>{seoService.title}</span></nav>
+            <h1>{seoService.title}</h1>
+            <h2>{seoService.heading}</h2>
+            <p>{seoService.intro}</p>
+            <div className="pzs-hero__actions"><a href="#teklif" className="pzs-button pzs-button--gold">Ücretsiz keşif planla <ArrowRight size={17} /></a><a href="tel:+905079480834" className="pzs-hero__link"><Phone size={17} /> Hemen arayın</a></div>
+          </div>
+        </section>
+        <section className="pzs-service-detail"><div className="pzs-shell">
+          <div className="pzs-service-detail__intro"><span>UYGULAMA REHBERİ</span><h2>{seoService.title} nasıl uygulanır?</h2></div>
+          <div className="pzs-service-detail__grid">
+            <article><span>01</span><h3>Yüzey analizi</h3><p>{seoService.diagnosis}</p></article>
+            <article><span>02</span><h3>Uygulama yöntemi</h3><p>{seoService.method}</p></article>
+            <article><span>03</span><h3>Hedeflenen sonuç</h3><p>{seoService.result}</p></article>
+          </div>
+          <div className="pzs-service-detail__uses"><strong>Uygun kullanım alanları</strong>{seoService.useCases.map((item) => <span key={item}><Check size={14} /> {item}</span>)}</div>
+        </div></section>
+      </> : <section className="pzs-hero" id="anasayfa">
         <div className="pzs-hero__image"><img src="/templates/premium-zemin-silim/hero-zemin-parlatma.webp" alt="Profesyonel mermer zemin silim ve parlatma uygulaması" fetchPriority="high" decoding="async" /><div className="pzs-hero__shine" /></div>
         <div className="pzs-hero__service-area"><MapPin size={18} /><span><b>İstanbul merkezli</b><small>Türkiye geneli hizmet</small></span></div>
         <div className="pzs-shell pzs-hero__content">
@@ -165,7 +231,7 @@ export default function ZeminSilimPage() {
           <div className="pzs-hero__proof"><span><BadgeCheck size={17} /> Yüzeye özel uygulama</span><span><MapPin size={17} /> Türkiye geneli hizmet</span><span><ShieldCheck size={17} /> Kontrollü işçilik</span></div>
         </div>
         <div className="pzs-hero__index"><span>01</span><i /><small>Profesyonel<br />yüzey deneyimi</small></div>
-      </section>
+      </section>}
 
       <div className="pzs-marquee" aria-hidden="true"><div>ZEMİNSİLİM <span>•</span> MERMER SİLİM <span>•</span> BETON PARLATMA <span>•</span> GRANİT CİLA <span>•</span> EPOKSİ TAŞLAMA <span>•</span> TRAVERTEN <span>•</span> MOZAİK <span>•</span> MERMER SİLİM <span>•</span> BETON PARLATMA <span>•</span></div></div>
 
@@ -217,7 +283,7 @@ export default function ZeminSilimPage() {
       <section className="pzs-section pzs-services" id="hizmetler">
         <div className="pzs-shell">
           <div className="pzs-heading"><div><span>UZMANLIK ALANLARI</span><h2>Her yüzeyin<br />kendi <em>karakteri</em> var.</h2></div><p>Tek tip uygulama yerine taşın ve zeminin yapısına göre doğru disk, doğru devir ve doğru bitiş seçilir.</p></div>
-          <div className="pzs-service-grid">{services.map(([number, title, description]) => <button key={title} onClick={() => { setSelectedService(title); document.getElementById('teklif')?.scrollIntoView({ behavior: 'smooth' }); }}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div><i><ChevronRight size={18} /></i></button>)}</div>
+          <div className="pzs-service-grid">{services.map(([number, title, description], index) => <a key={title} href={`/hizmetler/${servicePages[index].slug}`}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div><i><ChevronRight size={18} /></i></a>)}</div>
         </div>
       </section>
 
@@ -248,8 +314,8 @@ export default function ZeminSilimPage() {
 
             <nav className="pzs-footer__column" aria-label="Hizmetlerimiz">
               <h2>Hizmetlerimiz</h2>
-              {services.slice(0, 5).map(([, title]) => (
-                <a key={title} href="#teklif" onClick={() => setSelectedService(title)}>{title}</a>
+              {servicePages.slice(0, 5).map((service) => (
+                <a key={service.slug} href={`/hizmetler/${service.slug}`}>{service.title}</a>
               ))}
             </nav>
 
@@ -261,6 +327,7 @@ export default function ZeminSilimPage() {
             </div>
           </div>
           <div className="pzs-footer__bottom"><span>© 2026 ZeminSilim. Tüm hakları saklıdır.</span><span>İstanbul · Türkiye geneli hizmet</span></div>
+          <nav className="pzs-footer__legal" aria-label="Yasal bağlantılar"><a href="/gizlilik-politikasi">Gizlilik Politikası</a><a href="/cerez-politikasi">Çerez Politikası</a><a href="/kullanim-kosullari">Kullanım ve Hizmet Koşulları</a></nav>
         </div>
       </footer>
 
