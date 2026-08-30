@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-const fallbackUrl = 'https://premium-zemin-silim.pages.dev';
+const fallbackUrl = 'https://zeminsilim.tr';
 const siteUrl = (process.env.SITE_URL || fallbackUrl).trim().replace(/\/+$/, '');
 const dist = resolve('dist');
 const indexPath = resolve(dist, 'index.html');
