@@ -4,6 +4,7 @@ import {
   BadgeCheck,
   Building2,
   Check,
+  ChevronDown,
   ChevronRight,
   Factory,
   Home,
@@ -23,6 +24,29 @@ import {
 import servicePages from './service-pages.json';
 
 const services = servicePages.map((service) => [service.number, service.title, service.shortDescription] as const);
+
+const faqList = [
+  {
+    q: 'Zemin silim işlemi nedir ve hangi yüzeylere uygulanır?',
+    a: 'Zemin silim; mermer, beton, granit, karo, traverten, mozaik ve paladyen gibi sert yüzeylerde zamanla oluşan çizik, matlık, leke ve kot farklarını kademeli elmas disklerle mikron düzeyinde aşındırıp parlatma ve koruyucu cila uygulama işlemidir.',
+  },
+  {
+    q: 'Zemin silim uygulaması sırasında ortamda toz oluşur mu?',
+    a: 'Hayır. Kullandığımız endüstriyel makineler sulu silim sistemi ve yüksek vakumlu toz emiş filtreleriyle çalışır. Yaşam veya çalışma alanlarınız tozdan etkilenmez, çevre eşyalar titizlikle korunur.',
+  },
+  {
+    q: 'Zemin silim ve parlatma m² fiyatları nasıl belirlenir?',
+    a: 'Fiyatlandırma; zeminin cinsine (mermer, beton, granit vb.), alanın büyüklüğüne (m²), mevcut yıpranma/çizik derinliğine ve hedeflenen parlaklık seviyesine (mat, saten veya kristalize ayna parlaklığı) göre ücretsiz yerinde keşif sonrası netleştirilir.',
+  },
+  {
+    q: 'Mermer veya beton silimi ne kadar sürer?',
+    a: 'Uygulama süresi alanın büyüklüğüne ve deformasyon durumuna bağlıdır. Ortalama 50-150 m² konut, mağaza veya ofis zeminleri genellikle 1-2 iş gününde tamamlanarak kullanıma hazır teslim edilir.',
+  },
+  {
+    q: 'Türkiye genelinde hangi şehirlere hizmet veriyorsunuz?',
+    a: 'Merkezimiz İstanbul olmakla birlikte; Türkiye’nin 81 ilindeki villa, otel, fabrika, depo, mağaza ve kurumsal projeler için mobil ekip ve yerinde keşif imkânıyla profesyonel hizmet sunuyoruz.',
+  },
+];
 
 const caseCards = [
   { title: 'Doğal taş & mermer', label: 'KONUT · OTEL · OFİS', image: '/templates/premium-zemin-silim/mermer-donusum.webp' },
@@ -155,6 +179,7 @@ export default function ZeminSilimPage() {
   const [slider, setSlider] = useState(52);
   const [selectedService, setSelectedService] = useState(seoService?.title || 'Mermer Silim ve Cila');
   const [galleryPhotoIndexes, setGalleryPhotoIndexes] = useState<Record<string, number>>(() => Object.fromEntries(projectGallery.map((category) => [category.id, 0])));
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const activeService = useMemo(() => services.find((service) => service[1] === selectedService), [selectedService]);
 
   useEffect(() => {
@@ -190,15 +215,15 @@ export default function ZeminSilimPage() {
 
   return (
     <main className="pzs-site">
-      <div className="pzs-topbar"><div className="pzs-shell"><span><MapPin size={13} /> İstanbul merkezli</span><b>Türkiye geneli profesyonel zemin uygulaması</b><a href="#teklif">Hızlı keşif talebi <ArrowRight size={14} /></a></div></div>
+      <div className="pzs-topbar"><div className="pzs-shell"><span><MapPin size={13} /> Türkiye Geneli Hizmet</span><b>81 İlde Profesyonel Zemin Silim ve Cila</b><a href="#teklif">Ücretsiz Keşif Alın <ArrowRight size={14} /></a></div></div>
 
       <header className="pzs-header">
         <div className="pzs-shell pzs-header__inner">
           <a className="pzs-logo" href={seoService ? '/' : '#anasayfa'} aria-label="ZeminSilim ana sayfa"><img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" /><span><strong>ZEMİN</strong><small>SİLİM</small></span></a>
-          <nav className="pzs-nav" aria-label="Ana menü"><a href="#hizmetler">Hizmetler</a><a href="#donusum">Öncesi / Sonrası</a><a href="#galeri">Uygulamalar</a><a href="#surec">Çalışma Süreci</a></nav>
+          <nav className="pzs-nav" aria-label="Ana menü"><a href="#hizmetler">Hizmetler</a><a href="#donusum">Öncesi / Sonrası</a><a href="#galeri">Uygulamalar</a><a href="#surec">Çalışma Süreci</a><a href="#sss">Sıkça Sorulanlar</a></nav>
           <div className="pzs-header__actions"><a className="pzs-header__phone" href="tel:+905079480834"><Phone size={17} /><span>Ücretsiz keşif</span></a><a className="pzs-header__quote" href="#teklif">Teklif al <ArrowRight size={15} /></a><button aria-label="Menüyü aç" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={21} /> : <Menu size={22} />}</button></div>
         </div>
-        {menuOpen && <nav className="pzs-mobile-nav"><a href="#hizmetler" onClick={() => setMenuOpen(false)}>Hizmetler</a><a href="#donusum" onClick={() => setMenuOpen(false)}>Öncesi / Sonrası</a><a href="#galeri" onClick={() => setMenuOpen(false)}>Uygulamalar</a><a href="#surec" onClick={() => setMenuOpen(false)}>Çalışma Süreci</a><a href="#teklif" onClick={() => setMenuOpen(false)}>Teklif al</a></nav>}
+        {menuOpen && <nav className="pzs-mobile-nav"><a href="#hizmetler" onClick={() => setMenuOpen(false)}>Hizmetler</a><a href="#donusum" onClick={() => setMenuOpen(false)}>Öncesi / Sonrası</a><a href="#galeri" onClick={() => setMenuOpen(false)}>Uygulamalar</a><a href="#surec" onClick={() => setMenuOpen(false)}>Çalışma Süreci</a><a href="#sss" onClick={() => setMenuOpen(false)}>Sıkça Sorulanlar</a><a href="#teklif" onClick={() => setMenuOpen(false)}>Teklif al</a></nav>}
       </header>
 
       {seoService ? <>
@@ -223,14 +248,14 @@ export default function ZeminSilimPage() {
           <div className="pzs-service-detail__uses"><strong>Uygun kullanım alanları</strong>{seoService.useCases.map((item) => <span key={item}><Check size={14} /> {item}</span>)}</div>
         </div></section>
       </> : <section className="pzs-hero" id="anasayfa">
-        <div className="pzs-hero__image"><img src="/templates/premium-zemin-silim/hero-zemin-parlatma.webp" alt="Profesyonel mermer zemin silim ve parlatma uygulaması" fetchPriority="high" decoding="async" /><div className="pzs-hero__shine" /></div>
-        <div className="pzs-hero__service-area"><MapPin size={18} /><span><b>İstanbul merkezli</b><small>Türkiye geneli hizmet</small></span></div>
+        <div className="pzs-hero__image"><img src="/templates/premium-zemin-silim/hero-zemin-parlatma.webp" alt="Türkiye geneli profesyonel zemin silim ve parlatma uygulaması" fetchPriority="high" decoding="async" /><div className="pzs-hero__shine" /></div>
+        <div className="pzs-hero__service-area"><MapPin size={18} /><span><b>Türkiye Geneli</b><small>81 İlde Hizmet & Keşif</small></span></div>
         <div className="pzs-shell pzs-hero__content">
-          <p className="pzs-eyebrow"><Sparkles size={14} /> Yüzey restorasyonunda yeni standart</p>
-          <h1>Zemini değil,<br /><em>mekânı</em> yeniliyoruz.</h1>
-          <p>Mermerden betona, granitten epoksiye; yüzeyin dokusuna uygun profesyonel silim, taşlama ve cila uygulamaları.</p>
+          <p className="pzs-eyebrow"><Sparkles size={14} /> Türkiye Geneli Profesyonel Yüzey Uygulamaları</p>
+          <h1>Türkiye Geneli<br /><em>Zemin Silim</em> ve Cila</h1>
+          <p>Zemini değil, <em>mekânı</em> yeniliyoruz. Türkiye genelinde mermerden betona, granitten epoksiye; yüzeyin dokusuna uygun profesyonel silim, taşlama, parlatma ve koruyucu cila uygulamaları.</p>
           <div className="pzs-hero__actions"><a href="#teklif" className="pzs-button pzs-button--gold">Ücretsiz keşif planla <ArrowRight size={17} /></a><a href="#donusum" className="pzs-hero__link">Dönüşümü gör <MoveHorizontal size={17} /></a></div>
-          <div className="pzs-hero__proof"><span><BadgeCheck size={17} /> Yüzeye özel uygulama</span><span><MapPin size={17} /> Türkiye geneli hizmet</span><span><ShieldCheck size={17} /> Kontrollü işçilik</span></div>
+          <div className="pzs-hero__proof"><span><BadgeCheck size={17} /> Yüzeye özel uygulama</span><span><MapPin size={17} /> 81 İl mobil ekip</span><span><ShieldCheck size={17} /> Tozsuz & garantili işçilik</span></div>
         </div>
         <div className="pzs-hero__index"><span>01</span><i /><small>Profesyonel<br />yüzey deneyimi</small></div>
       </section>}
@@ -291,7 +316,41 @@ export default function ZeminSilimPage() {
 
       <section className="pzs-process" id="surec"><div className="pzs-shell pzs-process__grid"><div><span>ÇALIŞMA SÜRECİ</span><h2>Net plan.<br />Temiz uygulama.</h2><p>Zemini tanır, alanı korur, doğru aşamalarla ilerler ve sonucu birlikte kontrol ederiz.</p></div><ol><li><i>01</i><div><h3>Yüzey analizi</h3><p>Malzeme, deformasyon ve alan ölçüsü değerlendirilir.</p></div><Ruler size={20} /></li><li><i>02</i><div><h3>Uygulama planı</h3><p>Disk kademesi, cila ve bitiş yöntemi netleştirilir.</p></div><Layers3 size={20} /></li><li><i>03</i><div><h3>Kontrollü silim</h3><p>Yüzey dengeli biçimde işlenir ve parlatılır.</p></div><Sparkles size={20} /></li><li><i>04</i><div><h3>Son kontrol</h3><p>Parlaklık, temizlik ve yüzey bütünlüğü kontrol edilir.</p></div><Check size={20} /></li></ol></div></section>
 
-      <section className="pzs-quote" id="teklif"><div className="pzs-shell pzs-quote__grid"><div><span>ÜCRETSİZ ÖN DEĞERLENDİRME</span><h2>Zemininizi<br />birlikte yenileyelim.</h2><p>Yüzey türünü ve uygulama alanını iletin; ihtiyacınıza uygun çalışma planını oluşturalım.</p><div><strong>İstanbul merkezli</strong><small>Türkiye genelinde proje ve uygulama</small></div></div><form onSubmit={submitQuote}><label><span>Adınız</span><input name="name" required placeholder="Ad soyad" /></label><label><span>Telefon</span><input name="phone" required inputMode="tel" placeholder="05__ ___ __ __" /></label><label><span>Yüzey türü</span><select name="service" value={selectedService} onChange={(event) => setSelectedService(event.target.value)}>{services.map((service) => <option key={service[1]}>{service[1]}</option>)}</select></label><label><span>Uygulama şehri</span><input name="city" required placeholder="İstanbul" /></label><label className="pzs-quote__wide"><span>Alan ve mevcut durum</span><textarea name="details" placeholder="Yaklaşık m² ve zemindeki sorunları kısaca yazın" /></label><button className="pzs-button pzs-button--gold" type="submit">WhatsApp'tan teklif al <MessageCircle size={17} /></button>{activeService && <small className="pzs-form-note"><Check size={13} /> Seçilen hizmet: {activeService[1]}</small>}</form></div></section>
+      <section className="pzs-section pzs-faq" id="sss">
+        <div className="pzs-shell pzs-faq__grid">
+          <div className="pzs-faq__intro">
+            <span>MERAK EDİLENLER</span>
+            <h2>Sıkça sorulan<br /><em>sorular.</em></h2>
+            <p>Zemin silim, parlatma, tozsuz çalışma yöntemi, süreler ve fiyatlandırma süreçleri hakkında en çok merak edilen konular.</p>
+            <a href="#teklif">Farklı bir sorunuz mu var? Teklif Alın <ArrowRight size={15} /></a>
+          </div>
+          <div className="pzs-faq__list">
+            {faqList.map((item, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div key={item.q} className="pzs-faq__item">
+                  <button
+                    className="pzs-faq__button"
+                    type="button"
+                    aria-expanded={isOpen}
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                  >
+                    <span>{item.q}</span>
+                    <ChevronDown size={18} />
+                  </button>
+                  {isOpen && (
+                    <div className="pzs-faq__answer">
+                      <p>{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="pzs-quote" id="teklif"><div className="pzs-shell pzs-quote__grid"><div><span>ÜCRETSİZ ÖN DEĞERLENDİRME</span><h2>Zemininizi<br />birlikte yenileyelim.</h2><p>Yüzey türünü ve uygulama alanını iletin; ihtiyacınıza uygun çalışma planını oluşturalım.</p><div><strong>Türkiye Geneli Hizmet</strong><small>81 İlde yerinde keşif ve uygulama</small></div></div><form onSubmit={submitQuote}><label><span>Adınız</span><input name="name" required placeholder="Ad soyad" /></label><label><span>Telefon</span><input name="phone" required inputMode="tel" placeholder="05__ ___ __ __" /></label><label><span>Yüzey türü</span><select name="service" value={selectedService} onChange={(event) => setSelectedService(event.target.value)}>{services.map((service) => <option key={service[1]}>{service[1]}</option>)}</select></label><label><span>Uygulama şehri</span><input name="city" required placeholder="Şehir yazınız" /></label><label className="pzs-quote__wide"><span>Alan ve mevcut durum</span><textarea name="details" placeholder="Yaklaşık m² ve zemindeki sorunları kısaca yazın" /></label><button className="pzs-button pzs-button--gold" type="submit">WhatsApp'tan teklif al <MessageCircle size={17} /></button>{activeService && <small className="pzs-form-note"><Check size={13} /> Seçilen hizmet: {activeService[1]}</small>}</form></div></section>
 
       <footer className="pzs-footer">
         <div className="pzs-shell">
@@ -301,7 +360,7 @@ export default function ZeminSilimPage() {
                 <img src="/templates/premium-zemin-silim/premium-zemin-logo.svg" alt="" />
                 <span><strong>ZEMİN</strong><small>SİLİM</small></span>
               </a>
-              <p>Profesyonel zemin silim, taşlama, parlatma ve cila uygulamaları.</p>
+              <p>Türkiye genelinde profesyonel zemin silim, taşlama, parlatma ve cila uygulamaları.</p>
               <a className="pzs-footer__cta" href="#teklif">Ücretsiz keşif iste <ArrowRight size={15} /></a>
             </div>
 
@@ -311,6 +370,7 @@ export default function ZeminSilimPage() {
               <a href="#hizmetler">Hizmetlerimiz</a>
               <a href="#galeri">Uygulamalar</a>
               <a href="#surec">Çalışma Süreci</a>
+              <a href="#sss">Sıkça Sorulanlar</a>
               <a href="#teklif">Bize Ulaşın</a>
             </nav>
 
@@ -329,7 +389,7 @@ export default function ZeminSilimPage() {
               <a href="https://wa.me/905079480834?text=Merhaba%20ZeminSilim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer"><MessageCircle size={17} /><span>WhatsApp'tan yazın</span></a>
             </div>
           </div>
-          <div className="pzs-footer__bottom"><span>© 2026 ZeminSilim. Tüm hakları saklıdır.</span><span>İstanbul · Türkiye geneli hizmet</span></div>
+          <div className="pzs-footer__bottom"><span>© 2026 ZeminSilim. Tüm hakları saklıdır.</span><span>Türkiye Geneli Profesyonel Hizmet · 81 İl</span></div>
           <nav className="pzs-footer__legal" aria-label="Yasal bağlantılar"><a href="/gizlilik-politikasi">Gizlilik Politikası</a><a href="/cerez-politikasi">Çerez Politikası</a><a href="/kullanim-kosullari">Kullanım ve Hizmet Koşulları</a></nav>
         </div>
       </footer>
