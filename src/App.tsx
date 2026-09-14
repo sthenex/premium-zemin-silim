@@ -24,6 +24,26 @@ import {
 import servicePages from './service-pages.json';
 
 const services = servicePages.map((service) => [service.number, service.title, service.shortDescription] as const);
+const SITE_SUSPENDED = true;
+
+function MaintenancePage() {
+  return (
+    <main className="pzs-maintenance" aria-labelledby="pzs-maintenance-title">
+      <div className="pzs-maintenance__grain" aria-hidden="true" />
+      <section className="pzs-maintenance__panel">
+        <div className="pzs-maintenance__brand" aria-label="ZeminSilim">
+          <span>Z</span>
+          <div><strong>ZEMİN</strong><small>SİLİM</small></div>
+        </div>
+        <div className="pzs-maintenance__status"><i aria-hidden="true" /> SERVİS BİLDİRİMİ</div>
+        <h1 id="pzs-maintenance-title">Bu site geçici olarak<br />hizmet dışıdır.</h1>
+        <p>Servis sağlayıcınız ile iletişime geçiniz.</p>
+        <div className="pzs-maintenance__line" aria-hidden="true"><span /></div>
+      </section>
+      <small className="pzs-maintenance__footer">ZEMİNSİLİM · SİSTEM BİLDİRİMİ</small>
+    </main>
+  );
+}
 
 const faqList = [
   {
@@ -171,7 +191,7 @@ const projectGallery = [
   },
 ];
 
-export default function ZeminSilimPage() {
+function ZeminSilimSite() {
   const legalPage = legalPages[window.location.pathname.replace(/\/$/, '') as LegalPath];
   const serviceSlug = window.location.pathname.match(/^\/hizmetler\/([^/]+)\/?$/)?.[1];
   const seoService = servicePages.find((service) => service.slug === serviceSlug);
@@ -398,4 +418,8 @@ export default function ZeminSilimPage() {
 
     </main>
   );
+}
+
+export default function ZeminSilimPage() {
+  return SITE_SUSPENDED ? <MaintenancePage /> : <ZeminSilimSite />;
 }
