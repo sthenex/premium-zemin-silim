@@ -24,7 +24,7 @@ import {
 import servicePages from './service-pages.json';
 
 const services = servicePages.map((service) => [service.number, service.title, service.shortDescription] as const);
-const SITE_SUSPENDED = true;
+const SITE_SUSPENDED = false;
 
 function MaintenancePage() {
   return (
