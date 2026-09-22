@@ -25,6 +25,12 @@ import servicePages from './service-pages.json';
 
 const services = servicePages.map((service) => [service.number, service.title, service.shortDescription] as const);
 const SITE_SUSPENDED = false;
+const GOOGLE_ADS_WHATSAPP_CONVERSION = 'AW-18462351011/CTLPCPmDq4EdEKO9xONE';
+
+function trackWhatsAppConversion() {
+  const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+  gtag?.('event', 'conversion', { send_to: GOOGLE_ADS_WHATSAPP_CONVERSION });
+}
 
 function MaintenancePage() {
   return (
@@ -228,6 +234,7 @@ function ZeminSilimSite() {
       `Uygulama Şehri: ${data.get('city') || '-'}`,
       `Alan ve Mevcut Durum: ${data.get('details') || '-'}`,
     ].join('\n');
+    trackWhatsAppConversion();
     window.open(`https://wa.me/905079480834?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };
 
@@ -406,7 +413,7 @@ function ZeminSilimSite() {
               <p><MapPin size={17} /><span>Esenkent, Leylek Sk No:46 D:1<br />34776 Ümraniye/İstanbul</span></p>
               <a href="tel:+905079480834"><Phone size={17} /><span>+90 507 948 08 34</span></a>
               <a href="mailto:premiumzeminsilim@gmail.com"><Mail size={17} /><span>premiumzeminsilim@gmail.com</span></a>
-              <a href="https://wa.me/905079480834?text=Merhaba%20ZeminSilim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer"><MessageCircle size={17} /><span>WhatsApp'tan yazın</span></a>
+              <a href="https://wa.me/905079480834?text=Merhaba%20ZeminSilim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer" onClick={trackWhatsAppConversion}><MessageCircle size={17} /><span>WhatsApp'tan yazın</span></a>
             </div>
           </div>
           <div className="pzs-footer__bottom"><span>© 2026 ZeminSilim. Tüm hakları saklıdır.</span><span>Türkiye Geneli Profesyonel Hizmet · 81 İl</span></div>
@@ -414,7 +421,7 @@ function ZeminSilimSite() {
         </div>
       </footer>
 
-      <div className="pzs-contact-float"><a className="pzs-contact-float__whatsapp" href="https://wa.me/905079480834?text=Merhaba%20ZeminSilim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer" aria-label="WhatsApp'tan yaz"><MessageCircle size={19} /><span>WhatsApp</span></a><a className="pzs-contact-float__phone" href="tel:+905079480834" aria-label="ZeminSilim'i ara"><Phone size={19} /><span>Ara</span></a></div>
+      <div className="pzs-contact-float"><a className="pzs-contact-float__whatsapp" href="https://wa.me/905079480834?text=Merhaba%20ZeminSilim%2C%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer" aria-label="WhatsApp'tan yaz" onClick={trackWhatsAppConversion}><MessageCircle size={19} /><span>WhatsApp</span></a><a className="pzs-contact-float__phone" href="tel:+905079480834" aria-label="ZeminSilim'i ara"><Phone size={19} /><span>Ara</span></a></div>
 
     </main>
   );
